@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="./lrc.json"></script>
+<script>
+    console.log('lrc', lrc);
+    let msg = lrc.content;
+    console.log('msg', msg);
+    let arr = msg.split('\n');
+    console.log(arr);
+    // let obj = {};
+    arr = arr.filter(item => { return item; });
+    let arr1 = arr.map(item => {
+        if (item) {
+            console.log(item);
+            let str = item.trim().split('\]');
+            console.log(str, str[0]);
+            let obj = {};
+            obj['time'] = str[0].substr(1);
+            obj['text'] = str[1];
+            if (obj && str) {
+                return obj;
+            }
+        }
+    });
+
+    console.log(arr1);
+    let temp = '';
+    for (let i of arr1) {
+        temp += '<li id="t_' + i.time.replace(/[\:,\.]/ig, '_') + '">' + i.text + '</li>';
+    }
+    $('ul').html(temp);
+
+    var timer = null;
+    var line = 0;
+    clearInterval(timer);
+    timer = setInterval(() => {
+        line += 1;
+        if (line > 2.6 * 60 * 100) {
+            clearInterval(timer);
+            $('li').removeClass('red');
+        } else {
+            timeToStr(line);
+        }
+    }, 1);
+    function timeToStr(time) {
+        let abs = 100
+        let ms = parseInt(time % (100));
+        let s = parseInt(time / 100 % 60);
+        let m = parseInt(time / 60 / 100);
+
+        ms = ms > 9 ? ms : '0' + ms;
+        s = s > 9 ? s : '0' + s;
+        m = m > 9 ? m : '0' + m;
+
+        let id = "#t_" + m + '_' + s + '_' + ms;
+        let $id = $(id);
+        console.log(id, $id.length);
+        if ($id.length == 1) {
+            $('li').removeClass('red');
+            $(id).addClass('red');
+            let a = 0.05;
+            $('ul').css('top', -time * a + 'px');
+        }
+    }
+</script>
+
+
+<script>
+let rete=[10,10,10];
+
+</script>
+</html>
