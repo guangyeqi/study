@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- <script src="js/ObjTree.js"></script> -->
+<script src="js/ObjTree.min.js"></script>
+<script>
+
+    console.log(XML)
+    let a = new XML.ObjTree();
+    console.log(a);
+    var xml = '<?xml version="1.0"?><root><node>Hello, World!</node></root>';
+    var tree = a.parseXML(xml);
+    console.log(tree);     	// source to tree
+    document.write("message: " + tree.root.node);
+
+
+    let json = { "msg": "成功！", "flag": 0, "code": 0, "data": { "jobSubscribeCount": null, "jobCount": 1, "reundQuoFlag": 0 } };
+
+    let b = new XML.ObjTree();;
+
+    let bt = b.writeXML(json);
+    console.log(b, bt);
+    var aa = a.parseXML(bt);
+    bt = bt.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    console.log(b, bt, aa);
+    document.write("xml: " + bt);
+
+</script>
+
+</html>
