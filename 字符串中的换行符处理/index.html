@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本换行处理</title>
+</head>
+<body>
+    <textarea name="" id="area" cols="30" rows="10"></textarea>
+    <button onclick="getTxt()">
+        获取文本
+    </button>
+</body>
+<script>
+let a=document.getElementById('area');
+
+function getTxt(){
+
+    let str=a.value;
+    console.log(str);
+
+
+    let b=str.split("\n");
+    let c=str.split("\r");
+    let d=str.split("\s");
+
+    console.log(b,c,d);
+}
+
+let str="\"1761122786\"";
+
+let q=str.replace(/".\\/);
+
+console.log(q);
+
+
+</script>
+</html>
