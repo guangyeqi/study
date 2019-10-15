@@ -4,3 +4,4 @@
 .gitignore.swp
 /node_modules
 .history/*
+.history
