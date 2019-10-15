@@ -28,4 +28,5 @@ class AnalyseUrl{
 
         return pool[key] ? true : false;
     }
+
 }

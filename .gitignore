@@ -3,4 +3,4 @@
 .DS_Store
 .gitignore.swp
 /node_modules
-.history/*
+.history
