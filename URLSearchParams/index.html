@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let url='https://www.test.com/index.html?a=1&b=2&c=3&d=4';
+    let params=url.split('?')[1];
+    console.log("TCL: params", params);
+    // 0 定义
+    let a=new URLSearchParams(params);
+    console.log("TCL: a", a);
+    /* 方法 */
+    //append，添加一个键值对为参数
+    a.append('e','5');
+    a.append('d','10');
+
+    console.log("TCL:  a",  a.toString());
+    //delete,删除一个键值对
+    a.delete('a');
+    console.log("TCL:  a",  a.toString());
+    // //enteries
+    let b=a.entries();
+    console.log("TCL: b", b);
+    for(let i of b){
+        console.log("TCL: i", i)
+    }
+    //get,返回对应键的值，有返回值，无，返回null
+    let c=a.get('b');
+    console.log("TCL: c", c)
+    let d=a.get('a');
+    console.log("TCL: d", d)
+    //getAll，返回对于key,所有的值，类型为数组
+    let e=a.getAll('d');
+    console.log("TCL: e", e);
+    //has,判断是否存在该键，是true,无false
+    let f =a.has('a');
+    console.log("TCL: f", f)
+    let g =a.has('b');
+    console.log("TCL: g", g)
+    //keys,返回所有key的数组
+    let h=a.keys();
+    console.log("TCL: h", h);
+    for(let j of h){
+        console.log("TCL:  j",  j)
+    }
+    //set,为key设定一值，若存在多个，则删除。若没有，则添加一个。
+    a.set('f',6);
+    console.log("TCL: a", a.toString())
+    a.set('d','0');
+    console.log("TCL:  a",  a.toString())
+    //sort,key进行排序
+    a.sort();
+    console.log("TCL:  a",  a.toString());
+    //values,返回键值对
+    let j=a.values();
+    for(let k of j){
+        console.log("TCL: k", k)
+    }
+
+
+    
+
+
+
+</script>
+
+<script src="index.js"></script>
+
+</html>
