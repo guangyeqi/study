@@ -1,5 +1,6 @@
-/dist
+.git/*
+.idea/*
+.DS_Store
+.gitignore.swp
 /node_modules
-
-/example/weapp/node_modules
-/example/weapp/miniprogram_npm
+.history/*
