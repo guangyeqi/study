@@ -16,10 +16,7 @@
 		},
 		methods: {
 			async getInfo(e) {
-				console.log("TCL: getInfo -> e", e);
-				let $ajax=this.$ajax;
-				console.log("TCL: getInfo -> $ajax", $ajax)
-				const res= await $ajax.get({
+				const res= await this.$ajax.get({
 					params: {
 						token:'1234567890'
 					},
@@ -27,15 +24,11 @@
 						id:123
 					}
 				});
-                console.log("TCL: getInfo -> res", res)
 
 
 			},
 			async setInfo(e) {
-				console.log("TCL: setInfo -> e", e)
-				let $ajax=this.$ajax;
-				console.log("TCL: getInfo -> $ajax", $ajax);
-				const res= await $ajax.set({
+				const res= await this.$ajax.set({
 					params: {
 						token:'1234567890'
 					},
@@ -43,14 +36,12 @@
 						id:123
 					}
 				});
-                console.log("TCL: getInfo -> res", res)
 
 			}
 		}
 	}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 	.hello {
 		overflow: hidden;

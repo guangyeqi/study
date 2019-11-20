@@ -13,8 +13,8 @@ const environment={
     },
     local: {
         intro:'本地联调',
-        host:'http://localhost:3000',
-        host1:'http://localhost:3000',
+        host:'http://yapi.demo.qunar.com/mock/8606/study',
+        host1:'http://yapi.demo.qunar.com/mock/8606/study',
         wsUrl:''
     }
 }

@@ -9,6 +9,10 @@ Vue.config.productionTip = false;
 import ajax from './ajax/request'
 Vue.prototype.$ajax=ajax;
 
+import vueztree from 'vue-ztree-2.0/dist/vue-ztree-2.0.umd.min'
+import 'vue-ztree-2.0/dist/vue-ztree-2.0.css'
+Vue.use(vueztree);
+
 
 /* eslint-disable no-new */
 new Vue({
