@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 输入整型 1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。
+
+    function init(num) {
+        let yu=num % 10;
+        console.log("TCL: init -> yu", yu)
+        let cu=num /10 ;
+        console.log("TCL: init -> cu", cu)
+
+        if (yu.length > 1) {
+            return init(num / 10);
+        } else {
+            return yu;
+        }
+    }
+
+    let a=init(43);
+    console.log("TCL: a", a)
+</script>
+
+</html>
