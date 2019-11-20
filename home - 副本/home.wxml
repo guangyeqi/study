@@ -1,0 +1,205 @@
+<import src="../../comps/toast/wetoast.wxml" />
+<template is="wetoast" data="{{...__wetoast__}}" />
+<import src="../tabBar/tabBar.wxml" />
+<template is="tabBar" data="{{...bindData}}"/>
+<view class="homePage" wx:if="{{userData}}">
+  <view class="homeHead">
+    <form bindsubmit="formId" report-submit='true'>
+      <label>
+        <view class="flexBox">
+          <view class="userImg">
+            <image src="{{userData.avatar}}"></image>
+          </view>
+          <view class="userInfo">
+            <view class='leftBox'>
+              <view class="infoName oneLine">{{userData.nickName}}</view>
+              <view class="infoJob oneLine">{{userData.cardId ? userData.gangwei : '未生成名片'}}</view>
+            </view>
+            <view class='rightBox'>
+              <view class='infoCompany' wx:if="{{userData.cardId}}">
+                <text class="redPoint" wx:if="{{false}}"></text>个人主页
+                <view class="rightArrowTop rightArro" style="width:0rpx;"></view>
+              </view>
+              <view class='infoCompany' wx:else style='color:#FF595A;'>
+                生成名片
+                <view class="rightArrowTop" style="width:0rpx;"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <button bindtap="goBusiness" form-type="submit" style='display: none'></button>
+      </label>
+    </form>
+    <!-- 公司信息 start-->
+    <!-- <view class="companyInfo"> -->
+    <view class="companyInfo" data-card="{{userData.cardId}}" data-company="{{userData.certificate.cerCompanyStatus}}" data-companyPage="{{userData.companyStatus}}"  catch:tap="withCompany" >
+      <!-- 版心 -->
+      <view class="heart">
+        <!-- 公司名&操作 -->
+        <view class="nameOption">
+          <!-- 公司名 -->
+          <view class="companyName oneLine" >{{userData.company ? userData.company : '未生成名片' }}</view>
+          <!-- 操作 -->
+		  <view class="edit" wx:if="{{userData.companyStatus == '1'}}" >编辑</view>
+		  <view class="options" wx:else >创建主页</view>
+        </view>
+        <!-- 简介&地址 -->
+        <view class="introAddress">
+          <text class="intro"> {{userData.companyStatus == '1' ? '已添加简介' :'添加简介' }} </text>
+          <view class="gap"></view>
+          <text class="address"> {{userData.companyStatus == '1' ? '已添加公司地址' :'添加公司地址'}}</text>
+        </view>
+        <!-- 是否认证企业 -->
+		<image class="attest" wx:if="{{userData.certificate.cerCompanyStatus != '2'}}" src="../../images/noAttest.png"></image>
+      </view>
+    </view>
+    <!-- 公司信息 end-->
+    <view class="flexBox today">
+      <form bindsubmit="formId" class="browse" report-submit='true'>
+        <button bindtap="jump" data-name='jobManage' form-type="submit">
+          <!-- <text class="text1">{{data.totalTodayVisitCount}}</text> -->
+          <text class="text1">{{userData.jobCount}}</text>
+          <text class="text2">招聘信息</text>
+        </button>
+      </form>
+      <form bindsubmit="formId" class="browse" report-submit='true'>
+        <button bindtap="jump" data-name='supplyManage' form-type="submit">
+          <text class="text1">{{userData.userSupplyCount}}</text>
+          <text class="text2">供人信息</text>
+        </button>
+      </form>
+      <form bindsubmit="formId" class="message" report-submit='true'>
+        <button bindtap="jump" data-name='focusList' form-type="submit">
+          <!-- <view class="redCircle" wx:if="{{unReadCnt>0}}"></view> -->
+          <view class="msgNum" wx:if="{{unReadCnt>0}}">{{unReadCnt
+            < 99 ? unReadCnt : 99}}</view>
+              <text class="text1">{{userData.followUser.length}}</text>
+              <text class="text2">关注</text>
+        </button>
+      </form>
+      <form bindsubmit="formId" class="message" report-submit='true'>
+        <button bindtap="jump" data-name='fansList' form-type="submit">
+          <!-- <view class="redCircle" wx:if="{{unReadCnt>0}}"></view> -->
+          <view class="msgNum" wx:if="{{unReadCnt>0}}">{{unReadCnt
+            < 99 ? unReadCnt : 99}}</view>
+              <text class="text1">{{userData.fencceUser.length}}</text>
+              <text class="text2">粉丝</text>
+        </button>
+      </form>
+      </view>
+      </view>
+      <!-- 我的认证 -->
+      <view class="homeList mt20">
+        <form bindsubmit="formId" report-submit='true'>
+          <label class="listItem">
+            <view class="right attestRight">
+              <text class="name">我的认证</text>
+              <!-- <text class="rightText">认证</text> -->
+              <view class="rightArrow"></view>
+            </view>
+            <button bindtap="jump" data-name='myProve' form-type="submit" style='display: none'>
+            </button>
+          </label>
+        </form>
+      </view>
+      <view class="attestImg">
+        <view class="userProve  {{userData.certificate.cerPersonalStatus == 1 ? 'cerPersonalStatus' : ''}}">
+          <image src="{{userData.certificate.cerPersonalStatus == 1 ? '../../images/userProve_y.png' : '../../images/userProve.png'}}"></image>
+          <text>实名认证</text>
+					<text class="state s1" wx:if="{{userData.certificate.cerPersonalStatus == 0}}">(认证审核中)</text>
+					<text class="state s2" wx:if="{{userData.certificate.cerPersonalStatus == -1}}">(认证未通过)</text>
+					<text class="state s3" wx:if="{{userData.certificate.cerPersonalStatus == 1}}">(已认证)</text>
+        </view>
+        <view  class="companyAttest {{userData.certificate.cerCompanyStatus == 2 ? 'cerCompanyStatus' : ''}}">
+          <image src="{{userData.certificate.cerCompanyStatus == 2 ? '../../images/companyProve_y.png' : '../../images/companyProve.png'}}"></image>
+          <text>企业认证</text>
+          <text class="state s1" wx:if="{{userData.certificate.cerCompanyStatus == 1}}">(认证审核中)</text>
+					<text class="state s2" wx:if="{{userData.certificate.cerCompanyStatus == 3}}">(认证未通过)</text>
+					<text class="state s3" wx:if="{{userData.certificate.cerCompanyStatus == 2}}">(已认证)</text>
+        </view>
+      </view>
+      <view class="homeList">
+        <form bindsubmit="formId" report-submit='true'>
+          <!-- label替换Button Start -->
+          <label class="flexBox listItem">
+            <view class="right">
+              <text class="name">我的收藏</text>
+              <view class="rightArrow"></view>
+            </view>
+            <button bindtap="jump" data-name='collectList' form-type="submit" style='display: none'>
+            </button>
+          </label>
+        </form>
+      </view>
+  <view class="homeList">
+    <form bindsubmit="formId" report-submit='true'>
+    <!-- label替换Button Start -->
+      <label class="flexBox listItem">
+        <view class="right">
+          <text class="name">联系我们</text>
+          <view class="rightArrow"></view>
+        </view>
+        <!-- 隐藏的Button Start -->
+        <button bindtap="jump" data-name='contactUs' form-type="submit" style='display: none'>
+        </button>
+        <!-- 隐藏的Button End -->
+      </label>
+      <!-- label替换Button End -->
+    </form>
+  </view>
+  <!-- 联系我们 End -->
+  <!-- 推广Btn Start -->
+  <!-- <view class="shareBtn">
+    <form bindsubmit="formId" report-submit='true'>
+      <button class="btn" form-type="submit" open-type="share" wx:if="{{user.cardId && shareLink}}" >
+        <view class="firstLine">
+          <text class="highlight">推广</text>
+          <text>我的名片</text>
+        </view>
+        <view class="secondLine">
+          <text>让更多人找到我</text>
+          <view class="share">立即分享<view class="rightArrowBottom"></view></view>
+        </view>
+        <image src="https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/homeShare.png" class="image"/>
+      </button>
+      <button class="btn" form-type="submit"  wx:elif="{{!user.cardId}}" catchtap="noCard" >
+        <view class="firstLine">
+          <text class="highlight">推广</text>
+          <text>我的名片</text>
+        </view>
+        <view class="secondLine">
+          <text>让更多人找到我</text>
+          <view class="share">立即分享<view class="rightArrowBottom"></view></view>
+        </view>
+        <image src="https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/homeShare.png" class="image"/>
+      </button>
+    </form>
+  </view> -->
+  <!-- 推广Btn End -->
+
+  <view class="group" catch:tap="groupTap">
+    <image src="https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/banner2.gif"></image>
+  </view>
+</view>
+<view name="login" wx:if="{{!close}}">
+  <view class="loginBg">
+      <view class="loginCon">
+        <view class="loginTitle">
+          <view>提示</view>
+        </view>
+        <image class='loginLogo2' mode='widthFix' src='https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/course.gif'></image>
+        <button class="loginBtn" bindtap='close' open-type="contact" send-message-path="/pages/index/index" show-message-card send-message-img="https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/joinGropLink.png" style='width: 428rpx;margin: 70rpx auto 31rpx;'> 点击入群 </button>
+        <image class='close' bindtap='close' src="https://lodis.oss-cn-beijing.aliyuncs.com/webImages/qulaowu/del.png"/>
+      </view>
+  </view>
+</view>
+<view class='space'></view>
+<canvas canvas-id='shareCard' style='width: 210px;  height: 168px;position: fixed; left: -1000px;'></canvas>
+
+<canvas canvas-id='radarShareImg' style='width: 375px;  height: 600px;position: fixed; left: -1000px;'></canvas>
+
+
+
+<!-- 通知测试 -->
+
+<!-- <button class="tastNotify"  catch:tap="showNotify">通知动画测试</button> -->

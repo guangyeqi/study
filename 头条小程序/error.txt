@@ -1,0 +1,48 @@
+thirdScriptError
+undefined is not an object (evaluating 'this.data.userData.user.cardId'); [Component] Event Handler Error @ pages/home/home#bound 
+https://usr/app-service.js:4801:2074
+https://usr/app-service.js:4648:355
+[native code]
+safeCallback@https://lib/WASubContext.js:1:1094345
+https://lib/WASubContext.js:1:1287892
+r@https://lib/WASubContext.js:1:1219549
+https://lib/WASubContext.js:1:1219737
+https://lib/WASubContext.js:1:390873
+https://lib/WAService.js:1:119772
+m@https://lib/WAService.js:1:1827
+global code
+
+
+
+thirdScriptError
+null is not an object (evaluating 'd.cardId'); [Component] Event Handler Error @ pages/subPartner/pages/partnerForeman/partnerForeman#bound showShare
+compassPiiic@https://usr/app-service.js:4627:54712
+setShareImg@https://usr//pages/subPartner/app-service.js:1255:1750
+setShareImg@[native code]
+showShare@https://usr//pages/subPartner/app-service.js:1255:2160
+showShare@[native code]
+safeCallback@https://lib/WASubContext.js:1:1094345
+https://lib/WASubContext.js:1:1287892
+r@https://lib/WASubContext.js:1:1219549
+https://lib/WASubContext.js:1:1219671
+https://lib/WASubContext.js:1:390873
+https://lib/WAService.js:1:119772
+m@https://lib/WAService.js:1:1827
+global code
+
+
+
+
+thirdScriptError
+Cannot read property 'indexOf' of undefined;at App getUserInfo function;at api request success callback function
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.getNodeFromJid (<anonymous>:4576:15068)
+    at h.Connection.connect (<anonymous>:4576:21415)
+    at _login (<anonymous>:4573:6014)
+    at _utils.ajax.success (<anonymous>:4573:13773)
+    at success (<anonymous>:4597:8807)
+    at Function.function.e.(anonymous function) (<anonymous>:1:550297)
+    at <anonymous>:1:101864
+    at $e (<anonymous>:1:263648)
+    at Nt.<anonymous> (<anonymous>:1:394118)
+    at Nt.emit (<anonymous>:1:298250)

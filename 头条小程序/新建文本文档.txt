@@ -1,0 +1,57 @@
+thirdScriptError
+Cannot read property 'cardId' of undefined; [Component] Event Handler Error @ pages/home/home#bound 
+TypeError: Cannot read property 'cardId' of undefined
+    at ge.<anonymous> (https://usr/app-service.js:4801:1545)
+    at ge.jump (https://usr/app-service.js:4648:350)
+    at Object.r.safeCallback (WASubContext.js:1:1102459)
+    at WASubContext.js:1:1278381
+    at r (WASubContext.js:1:1229489)
+    at WASubContext.js:1:1229677
+    at WASubContext.js:1:393437
+
+webviewScriptError
+Cannot read property 'style' of undefined
+TypeError: Cannot read property 'style' of undefined
+    at eval (eval at C (http://127.0.0.1:43144/__pageframe__/pageframe.html:1:6253), <anonymous>:6:54)
+
+
+
+thirdScriptError
+Cannot read property 'cardId' of undefined; [Component] Event Handler Error @ pages/subInit/pages/home/home#bound 
+TypeError: Cannot read property 'cardId' of undefined
+    at ge.<anonymous> (https://usr//pages/subInit/app-service.js:1732:1987)
+    at ge.goBusiness (https://usr/app-service.js:3898:350)
+    at Object.r.safeCallback (WASubContext.js:1:1102459)
+    at WASubContext.js:1:1278381
+    at r (WASubContext.js:1:1229489)
+    at WASubContext.js:1:1229677
+    at WASubContext.js:1:393437
+
+
+webviewScriptError
+Cannot read property '_formId' of undefined;[Exparser] [Error] [Component] Event Listener Error @ wx-button#(anonymous)
+TypeError: Cannot read property '_formId' of undefined
+    at n._onThisTap (WAWebview.js:1:716848)
+    at n.<anonymous> (WAWebview.js:1:232673)
+    at i.safeCallback (WAWebview.js:1:136171)
+    at i.call (WAWebview.js:1:136064)
+    at o (WAWebview.js:1:139337)
+    at WAWebview.js:1:139949
+    at p (WAWebview.js:1:138871)
+    at Function.l.dispatchEvent (WAWebview.js:1:139835)
+    at Function.l.triggerEvent (WAWebview.js:1:140049)
+    at n.m.triggerEvent (WAWebview.js:1:217488)
+
+
+webviewSDKScriptError
+Failed delete storage group data;removeGlobalStorage:fail remove DB data fail(transaction)
+pe@https://servicewechat.com/preload/page-frame.html:2:104974
+https://servicewechat.com/preload/page-frame.html:2:108800
+v@https://servicewechat.com/preload/page-frame.html:2:1490
+global code@https://servicewechat.com/preload/page-frame.html:1:37
+
+
+
+
+
+{"ued":"13072","phone":"","needAuthorization":true,"openid":"","sex":"未知","cardId":null,"nickname":"访客258929","blackFlag":0,"stime":1568159312460,"avatar":"https://biping.oss-cn-beijing.aliyuncs.com/Static/images/face/default.png","token":"ed62e239006f4804a73d512c47b23451"}
