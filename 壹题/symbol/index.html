@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function log(any) {
+        console.log(any);
+    }
+    /* Symbol使用,symbol是唯一的 */
+    let s1 = Symbol();
+    console.log(s1);
+    let s2 = Symbol('this is title');
+    let s3 = Symbol('this is title');
+    console.log(s2, s3);
+    log(typeof s1);
+    /* 比较两个Symbol，总是false */
+    log(s2 == s3);
+
+    /*
+    使用场景，
+    1，使用symbol来做对象的key*/
+    let id = Symbol('id');
+    let age = Symbol('age');
+
+    let obj = {
+        [id]: 01,
+        [age]: 18,
+        id: 's01',
+        age: 'S19'
+    }
+    log(obj);
+
+    let a = Object.keys(obj);
+    let b = Object.values(obj);
+    log(a);
+    log(b);
+    for (let i in obj) {
+        log(i, obj[i]);
+    }
+    let c = JSON.stringify(obj);
+    log(c);
+    let d = Object.getOwnPropertyNames(obj);
+    log(d);
+    /* 以上方面都获取不到Symbol为key的值 */
+    let e = Object.getOwnPropertySymbols(obj);
+    log(e);
+    let f = Reflect.ownKeys(obj);
+    log(f);
+    /* 2,利用symbol的唯一性，可设置为唯一常量 */
+    const g = Symbol();
+    /* 3，利用symbol定义类的私有属性或方法，使用symbol与模块化，没成功，？？？同一环境？一头雾水*/
+    const h = pwd = Symbol();
+    class Open {
+        constructor(name, pwd) {
+            let self = this;
+            self.name = name;
+            self[h] = pwd;
+        }
+        view(pwd) {
+            return this[h] == pwd
+        }
+    }
+    /* 使用symbol 全局注册获取symbol */
+    let key='symbol';
+    let k=Symbol.for(key);
+    let s=Symbol.for(key);
+
+    log(k == s);
+
+
+
+</script>
+<script src="./use.js"></script>
+
+
+</html>

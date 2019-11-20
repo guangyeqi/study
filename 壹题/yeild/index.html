@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    function* countAppleSales() {
+        var saleList = [3, 7, 5];
+        for (var i = 0; i < saleList.length; i++) {
+            yield saleList[i];
+        }
+    }
+
+    var appleStore = countAppleSales(); // Generator { }
+    console.log(appleStore.next()); // { value: 3, done: false }
+    console.log(appleStore.next()); // { value: 7, done: false }
+    console.log(appleStore.next()); // { value: 5, done: false }
+    console.log(appleStore.next()); // { value: undefined, done: true }
+</script>
+
+</html>

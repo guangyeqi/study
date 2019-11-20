@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var fastSin = function (step) {
+        let table = [],
+            ang = 0,
+            angStep = (Math.PI * 2) / step;
+        do {
+            table.push(Math.sin(ang));
+            ang += angStep;
+        } while (ang < Math.PI * 2);
+        return table;
+    }
+    var a=fastSin(360);
+    console.log(a);
+</script>
+
+</html>

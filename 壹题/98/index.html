@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function changeObjProperty(o) {
+    //     o.siteUrl = "http://www.baidu.com"
+    //     o = new Object()
+    //     o.siteUrl = "http://www.google.com"
+    // }
+    // let webSite = new Object();
+    // changeObjProperty(webSite);
+    // console.log(webSite.siteUrl);//http://www.google.com
+
+    // 函数的形参是值的传递，传递对象的话，函数接受的是这个对象的指针
+    function changeObjProperty(o) {
+
+        // o----指向webSite o是一个地址或变量
+        o.siteUrl = "http://www.baidu.com"
+        console.log(o);
+
+        o = new Object();
+        //o_指向新obj
+        console.log(o);
+        o.siteUrl = "http://www.google.com"
+        console.log(o);
+    }
+    let webSite = new Object();
+    webSite['q']=1;
+    console.log(webSite);
+    changeObjProperty(webSite);
+    console.log(webSite.siteUrl);//http://www.google.com
+
+</script>
+
+</html>

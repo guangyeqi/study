@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    /*第 101 题：修改以下 print 函数，使之输出 0 到 99，或者 99 到 0
+
+    要求：
+
+    1、只能修改 setTimeout 到 Math.floor(Math.random() \* 1000 的代码
+
+    2、不能修改 Math.floor(Math.random() \* 1000
+
+    3、不能使用全局变量
+
+    function print(n) {
+        setTimeout(() => {
+            console.log(n);
+        }, Math.floor(Math.random() \* 1000));
+    }
+    for (var i = 0; i < 100; i++) {
+        print(i);
+    }*/
+
+
+    // function print(n) {
+    //     setTimeout((function (n) {
+    //         console.log(n);
+    //     })(99 - n), Math.floor(Math.random() * 1000));
+    //     setTimeout((function (n) {
+    //         console.log(n);
+    //     })(n), Math.floor(Math.random() * 1000));
+
+    //     setTimeout(((n) => {
+    //         console.log(n);
+    //     })(n), Math.floor(Math.random() * 1000));
+    //     setTimeout(((n) => {
+    //         console.log(n);
+    //     })(99 - n), Math.floor(Math.random() * 1000));
+    // }
+    // for (var i = 0; i < 100; i++) {
+    //     print(i);
+    // }
+
+    /*已知如下数组：
+var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10];
+编写一个程序将数组扁平化去并除其中重复部分数据，最终得到一个升序且不重复的数组 */
+    var arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10];
+    console.log(arr.toString().split(','));
+
+    var t=JSON.stringify(arr);
+    console.log(t.split(','));
+    t=t.replace(/[\[\]]/g,'');
+    console.log(t);
+    var narr=JSON.parse('['+t+']');
+    console.log(narr);
+    narr.sort((a,b)=>{
+        return a-b;
+    });
+    console.log(narr);
+    var c=new Set(narr);
+    console.log(c);
+    var b=Array.from(c);
+    console.log(b);
+
+
+
+
+
+</script>
+
+</html>
