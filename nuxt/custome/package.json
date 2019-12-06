@@ -1,0 +1,9 @@
+{
+    "name": "custome",
+    "scripts": {
+        "dev": "nuxt"
+    },
+    "dependencies": {
+        "nuxt": "^2.10.2"
+    }
+}
