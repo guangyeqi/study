@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "dev": "npm run dev"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "fs": "0.0.1-security",
+        "path": "^0.12.7",
+        "request": "^2.88.0",
+        "superagent": "^5.1.2"
+    }
+}
